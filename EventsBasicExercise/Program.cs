@@ -10,6 +10,7 @@
             House talsi = new House(15, "00000000");
 
            alarmSystem.AddHouse(annaZak);
+           
         //   alarmSystem.AddHouse(talsi);
 
            annaZak.OpenDoor(false);

@@ -37,7 +37,7 @@ namespace EventsBasicExercise
             if (!usingKey)//-->משהו פורץ לבית
             {
               //  DoorOpened(this,new EventArgs());   
-                DoorOpened(this, new OpenDoorEventArguments() { BreakTime = DateTime.Now });
+                DoorOpened?.Invoke(this, new OpenDoorEventArguments() { BreakTime = DateTime.Now });
             }
 
             Console.WriteLine("Door opened!");

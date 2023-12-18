@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EventsBasicExercise
 {
-    public class OpenDoorEventArguments
+    public class OpenDoorEventArguments:EventArgs
     {
         public DateTime BreakTime { get; set; }
     }
