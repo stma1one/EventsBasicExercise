@@ -9,10 +9,13 @@ namespace EventsBasicExercise
   
     public class House
     {
-        
-        private  bool doorOpen;//האם הדלת פתוחה
+        public event EventHandler<OpenDoorEventArguments> DoorOpened;//מנגנון שיאפשר להפעיל את האזעקה כשהדלת נפתחת
+
+
+        private bool doorOpen;//האם הדלת פתוחה
         public int HouseNumber { get; set; }//מספר בית
         public string Phone { get; set; }//טלפון בית
+       
 
        
 
@@ -26,11 +29,22 @@ namespace EventsBasicExercise
         }
 
         //פתיחת דלת
-        public void OpenDoor()
+        public void OpenDoor(bool usingKey)
         {
+            Console.WriteLine("Door Opening....\n\n\n\n\n\n");//רק לתיעוד
             Thread.Sleep(2000);//נחכה 2 שניות בשביל המתח
-            doorOpen = true;    
+            doorOpen = true;
+            if (!usingKey)//-->משהו פורץ לבית
+            {
+              //  DoorOpened(this,new EventArgs());   
+                DoorOpened(this, new OpenDoorEventArguments() { BreakTime = DateTime.Now });
+            }
+
+            Console.WriteLine("Door opened!");
+
         }
+
+        
 
         public void CloseDoor()
         {
